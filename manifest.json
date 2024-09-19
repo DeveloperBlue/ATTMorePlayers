@@ -1,0 +1,7 @@
+{
+    "name" : "MorePlayers",
+    "description" : "Adds support for up to eight players.",
+    "version_number" : "0.1.0",
+    "dependencies" : ["BepInEx-BepInExPack-5.4.2100"],
+    "website_url" : "https://github.com/DeveloperBlue/ATTMorePlayers"
+}
