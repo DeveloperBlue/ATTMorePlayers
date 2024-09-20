@@ -16,7 +16,7 @@ using UnityEngine.UI;
 
 namespace ATTMorePlayers;
 
-[BepInPlugin("com.michaelrooplall.mods.attmoreplayers", "More Players", "0.0.6")]
+[BepInPlugin("com.michaelrooplall.mods.attmoreplayers", "More Players", "0.1.0")]
 public class Plugin : BaseUnityPlugin
 {
 

@@ -1,11 +1,11 @@
 # More Players!
 
 <p align="center">
-  <img alt="shot from the second floor looking down" src="https://raw.githubusercontent.com/DeveloperBlue/ATTUnlockedSecondFloor/refs/heads/main/previews/1.jpg" width="32%">
+  <img alt="shot from the second floor looking down" src="https://raw.githubusercontent.com/DeveloperBlue/ATTMorePlayers/refs/heads/main/previews/3.jpg" width="32%">
 &nbsp;
-  <img alt="shot from the base of the stairs looking up" src="https://raw.githubusercontent.com/DeveloperBlue/ATTUnlockedSecondFloor/refs/heads/main/previews/2.jpg" width="32%">
+  <img alt="shot from the base of the stairs looking up" src="https://raw.githubusercontent.com/DeveloperBlue/ATTMorePlayers/refs/heads/main/previews/3.jpg" width="32%">
   &nbsp;
-  <img alt="shot from the base of the stairs looking up" src="https://raw.githubusercontent.com/DeveloperBlue/ATTUnlockedSecondFloor/refs/heads/main/previews/2.jpg" width="32%">
+  <img alt="shot from the base of the stairs looking up" src="https://raw.githubusercontent.com/DeveloperBlue/ATTMorePlayers/refs/heads/main/previews/3.jpg" width="32%">
 </p>
 
 ----
