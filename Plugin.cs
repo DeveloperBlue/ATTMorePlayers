@@ -16,7 +16,7 @@ using UnityEngine.UI;
 
 namespace ATTMorePlayers;
 
-[BepInPlugin("com.michaelrooplall.mods.attmoreplayers", "More Players", "0.1.0")]
+[BepInPlugin("com.michaelrooplall.mods.attmoreplayers", "More Players", "0.9.1")]
 public class Plugin : BaseUnityPlugin
 {
 
@@ -278,6 +278,9 @@ public class Plugin : BaseUnityPlugin
             GameObject playerContainerPrefab = GameObject.Find("Common/Game/PlayerContainers/ContainerP0");
             GameObject playerContainers = GameObject.Find("Common/Game/PlayerContainers");
 
+            Debug.Log($"[MORE PLAYERS] (Before adding more player containers) Found number of slots: {__instance.playerContainers.Length} in playerContainers");
+            Array.Resize(ref __instance.playerContainers, maxPlayers);
+
             for (int player_index = 4; player_index < maxPlayers; player_index++) {
 
                 Debug.Log($"[MORE PLAYERS] Creating Networked Container ContainerP{player_index.ToString()}");
@@ -292,17 +295,18 @@ public class Plugin : BaseUnityPlugin
                 }
 
                 // Initialize ContainerNet properties
-                containerNet.id.Value = (ushort)(player_index);
+                containerNet.id.Value = (ushort)(player_index + 1);
 
                 newBackpack.transform.SetParent(playerContainerPrefab.transform.parent.transform);
 
                 // __instance.AddContainer(containerNet);
-                Array.Resize(ref __instance.playerContainers, __instance.playerContainers.Length + 1);
                 __instance.playerContainers[player_index] = containerNet;
 
                 Debug.Log($"[MORE PLAYERS] Pushed Networked ContainerP{player_index.ToString()} to ContainerManager and playerContainers");
 
             } 
+
+            Debug.Log($"[MORE PLAYERS] Found number of slots: {__instance.playerContainers.Length} in playerContainers");
 
             buildBackpacks();     
 

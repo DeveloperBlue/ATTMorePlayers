@@ -1,21 +1,23 @@
 {
   "name": "mod-builder",
   "version": "1.0.0",
-  "description": "<p align=\"center\">\r   <img alt=\"shot from the second floor looking down\" src=\"https://raw.githubusercontent.com/DeveloperBlue/ATTUnlockedSecondFloor/refs/heads/main/previews/1.jpg\" width=\"48%\">\r &nbsp; &nbsp; &nbsp; &nbsp;\r   <img alt=\"shot from the base of the stairs looking up\" src=\"https://raw.githubusercontent.com/DeveloperBlue/ATTUnlockedSecondFloor/refs/heads/main/previews/2.jpg\" width=\"48%\">\r </p>",
+  "description": "",
   "main": "build.js",
   "scripts": {
+    "build" : "dotnet build",
+    "package" : "node build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DeveloperBlue/ATTUnlockedSecondFloor.git"
+    "url": "git+https://github.com/DeveloperBlue/ATTMorePlayers.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DeveloperBlue/ATTUnlockedSecondFloor/issues"
+    "url": "https://github.com/DeveloperBlue/ATTMorePlayers/issues"
   },
-  "homepage": "https://github.com/DeveloperBlue/ATTUnlockedSecondFloor#readme",
+  "homepage": "https://github.com/DeveloperBlue/ATTMorePlayers#readme",
   "dependencies": {
     "archiver": "^7.0.1"
   }

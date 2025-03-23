@@ -1,4 +1,4 @@
-# More Players! v0.9.0-Beta
+# More Players! v0.9.1-Beta [⚠ BROKEN AS OF 1.4.2 / INN UPDATE]
 
 <p align="center">
   <img alt="Placeholder Image" src="https://raw.githubusercontent.com/DeveloperBlue/ATTMorePlayers/refs/heads/main/previews/3.jpg" width="32%">
@@ -7,6 +7,17 @@
   &nbsp;
   <img alt="Placeholder Image" src="https://raw.githubusercontent.com/DeveloperBlue/ATTMorePlayers/refs/heads/main/previews/3.jpg" width="32%">
 </p>
+
+----
+
+<h1 color="red"> ⚠ As of the 1.4.2 / Inn Update, this mod is broken! ⚠</h1>
+
+Unfortunately as of the 1.4.2 / Inn Update update, this mod is broken! Users are reporting missing inventories and duplicated items.
+
+I am not able to quickly get a patch out at this time.
+
+- 3/23/2025
+
 ----
 
 This is an **extremely experimental** mod that patches in support for up to **8** players.
