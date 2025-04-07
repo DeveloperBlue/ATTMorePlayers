@@ -11,17 +11,6 @@ const archive = archiver('zip', {
 
 /* */
 
-const files = [
-    {
-        file : "bin/Debug/netstandard2.1/ATTMorePlayers.dll",
-        name : "MorePlayers.dll"
-    },
-    "icon.png",
-    "manifest.json",
-    "README.md"
-]
-
-console.log("");
 
 let manifest
 
@@ -32,6 +21,18 @@ try {
     console.error(e);
     process.exit();
 }
+
+const files = [
+    {
+        file : "bin/Debug/netstandard2.1/ATTMorePlayers.dll",
+        name : `MorePlayers-v${manifest.version_number}.dll`
+    },
+    "icon.png",
+    "manifest.json",
+    "README.md"
+]
+
+console.log("");
 
 console.log(`Building distribution for ${manifest.name} - ${manifest.version_number}`);
 console.log(`Bundling ${files.length} files.`);

@@ -1,4 +1,4 @@
-# More Players! v0.9.1-Beta [⚠ BROKEN AS OF 1.4.2 / INN UPDATE]
+# More Players! v0.9.2-Alpha
 
 <p align="center">
   <img alt="Placeholder Image" src="https://raw.githubusercontent.com/DeveloperBlue/ATTMorePlayers/refs/heads/main/previews/3.jpg" width="32%">
@@ -10,13 +10,15 @@
 
 ----
 
-<h1 color="red"> ⚠ As of the 1.4.2 / Inn Update, this mod is broken! ⚠</h1>
+<h1 color="red">🔥 Hotpatch for the 1.4.2 / Inn Update 🔥</h1>
 
-Unfortunately as of the 1.4.2 / Inn Update update, this mod is broken! Users are reporting missing inventories and duplicated items.
+I have pushed out a hotpatch for the 1.4.2 / Inn Update! These patches should fix picking up items, interacting with the inventory, duplicated items, errors with the player list, and fixes game saving!
 
-I am not able to quickly get a patch out at this time.
+Thank you all for your patience, and especially thank you all for the **bug reports** and **support**!
 
-- 3/23/2025
+If you continue to run into issues, please [report your issues here](https://github.com/DeveloperBlue/ATTMorePlayers/issues).
+
+- 4/7/2025
 
 ----
 
@@ -69,7 +71,7 @@ This mod was created for fun in my spare time. It's also my first Unity mod.
   - Reuses players 1-4 spawn points for players 5-8.
     - You may be able to do a funny with everyone joining at the same time and getting squished into the same spawn locations.
 - UI
-  - Adds more player slots in the Player List Menu for players 5 through 8. (Scroll bar coming soon)
+  - ~~Adds more player slots in the Player List Menu for players 5 through 8~~. (REMOVED: The vanilla game now creates 8 player list items on its own)
     - Voice chat still works. Volumes are adjustable between all players.
     - Host can still kick/ban additional players
   - Changes the New Game menu to say "BiggerTavern" instead of just "Tavern", as a way to tell if the mod is loaded or not.
@@ -85,14 +87,21 @@ This mod was created for fun in my spare time. It's also my first Unity mod.
     - Tries to only spawn as much loot as the game has spawn points.
     - Tries to only spawn as many chests as the game has spawn points.
       - e.g. if there are only 8 spots for a chest to spawn, and we try to spawn a 9th chest, the game would crash.
+  - 1.4.2 / Inn Update **(Fixes bugs [#2](https://github.com/DeveloperBlue/ATTMorePlayers/issues/2) [#3](https://github.com/DeveloperBlue/ATTMorePlayers/issues/3), not tested with multiple players)**
+    - This version and versions after have only been lightly tested for bug fixes.
+    - Items can now be picked up
+    - Interacting with an inventory item no longer duplicates it
+    - Fixes saving
+    - No longer creates Player List Items for players 5-8 as the vanilla game now handles that internally
 
 ## To Do
 - Play the full game and test all quests up tho the Cave Quest
 - Server mod "enforcement", to ensure players without the mod can't join the lobby (and break the mod).
-- Scroll bar in the Player List menu
+- ✔️ Scroll bar in the Player List menu (Thank you game developers)
 
-## Known Issues
-- No major issues found so far. But I'm sure there's plenty. No one's code should work on the first try like this. It's unholy.
+## Issues
+[Please report any issues you encounter.](https://github.com/DeveloperBlue/ATTMorePlayers/issues)
+If you are able to include logs, crash reports, or information on what you were doing that caused the issue, please provide it!
 
 ----
 

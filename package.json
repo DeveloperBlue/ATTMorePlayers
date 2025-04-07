@@ -5,7 +5,7 @@
   "main": "build.js",
   "scripts": {
     "build" : "dotnet build",
-    "package" : "node build.js",
+    "package" : "npm run build && node build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

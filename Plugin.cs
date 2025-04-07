@@ -16,7 +16,7 @@ using UnityEngine.UI;
 
 namespace ATTMorePlayers;
 
-[BepInPlugin("com.michaelrooplall.mods.attmoreplayers", "More Players", "0.9.1")]
+[BepInPlugin("com.michaelrooplall.mods.attmoreplayers", "More Players", "0.9.2")]
 public class Plugin : BaseUnityPlugin
 {
 
@@ -33,7 +33,7 @@ public class Plugin : BaseUnityPlugin
         // Enable logging to file
         HarmonyFileLog.Enabled = true;
 
-        Logger.LogInfo($"[MORE PLAYERS] Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
+        Logger.LogInfo($"[MORE PLAYERS] Plugin {MyPluginInfo.PLUGIN_GUID} - v{MyPluginInfo.PLUGIN_VERSION} is loaded!");
 
         var harmony = new Harmony("com.michaelrooplall.mods.attmoreplayers.patch");
 
@@ -79,11 +79,11 @@ public class Plugin : BaseUnityPlugin
         } catch (System.Exception e) {
             Logger.LogError(e);
         }
-        try {
-            this.expandPlayerListMenu();
-        } catch (System.Exception e) {
-            Logger.LogError(e);
-        }
+        // try {
+        //     this.expandPlayerListMenu();
+        // } catch (System.Exception e) {
+        //     Logger.LogError(e);
+        // }
         Debug.Log("\n==========================\n\n");
     }
 
@@ -528,125 +528,6 @@ public class Plugin : BaseUnityPlugin
         }
     }
 
-
-    private void expandPlayerListMenu() {
-
-        Debug.Log("\n\n[MORE PLAYERS] [Expanding Player List Menu]");
-        
-        // Find the original PlayerListElement in the hierarchy
-        GameObject menuPlayerScreen = GameObject.Find("Common/GameCanvas/Menu Players Screen");
-
-        GameObject baseCanvasElement = GameObject.Find("Common/GameCanvas/Menu Players Screen/Panel/Panel/");
-
-        GameObject playerListElement2 = GameObject.Find("Common/GameCanvas/Menu Players Screen/Panel/Panel/PlayerListElement_2");
-        GameObject playerListElement3 = GameObject.Find("Common/GameCanvas/Menu Players Screen/Panel/Panel/PlayerListElement_3");
-
-        float positionDif = playerListElement3.transform.position.y - playerListElement2.transform.position.y;
-
-        if (menuPlayerScreen != null && playerListElement2 != null && playerListElement3 != null) {
-
-            PlayerList playerList = menuPlayerScreen.GetComponent<PlayerList>();
-
-            if (playerList == null) {
-                Debug.Log("[MORE PLAYERS] Failed to find PlayerList Component on MenuPlayerScreen");
-                return;
-            }
-
-            PlayerListElement[] ples_extended = new PlayerListElement[maxPlayers.Value];
-
-            FieldInfo field = playerList.GetType().GetField("_ples", BindingFlags.NonPublic | BindingFlags.Instance);
-
-            if (field == null) {
-                Debug.Log("[MORE PLAYERS] Failed to extract _ples from PlayerList");
-                return;
-            }
-
-            PlayerListElement[] _ples = (PlayerListElement[])field.GetValue(playerList);
-
-            for (int i = 0; i < _ples.Length; i++) {
-                ples_extended[i] = _ples[i];
-            }
-
-            for (int player_index = 4; player_index < maxPlayers.Value; player_index++) {
-
-                // Clone the original object
-                GameObject newPlayerListGUIElement = Instantiate(playerListElement3);
-
-                // Set the cloned object as a child of the same parent (Panel/Panel)
-                newPlayerListGUIElement.transform.SetParent(playerListElement3.transform.parent);
-
-                // Change the name and position of the cloned object
-                newPlayerListGUIElement.name = $"PlayerListElement_{player_index}";  // Set the new name
-                newPlayerListGUIElement.transform.position = new Vector3(playerListElement3.transform.position.x, playerListElement3.transform.position.y + ((player_index - 3) * positionDif * 0.7f), playerListElement3.transform.position.z);  // Example new position
-                newPlayerListGUIElement.transform.localScale = playerListElement3.transform.localScale;
-
-                newPlayerListGUIElement.SetActive(value: false);
-
-                PlayerListElement playerListElement = newPlayerListGUIElement.GetComponent<PlayerListElement>();
-                playerListElement.name = $"PlayerListElement_{player_index}";
-
-                ples_extended[player_index] = playerListElement;
-
-                Debug.Log($"[MORE PLAYERS] Created new PlayerListElement for Player {player_index + 1}");
-                
-            }
-
-            field.SetValue(playerList, ples_extended);
-
-            /* UI Scaling to make it look nicer, because we can't get the scrollView fn to work */
-            // insertScrollViewOnPlayerList();
-
-            int childCount = baseCanvasElement.transform.childCount;
-            for (int i = childCount - 1; i >= 0; i--)
-            {
-                Transform child = baseCanvasElement.transform.GetChild(i);
-                child.transform.localScale = new Vector3(0.62f, 0.62f, 0.62f);
-            }
-
-            VerticalLayoutGroup verticalLayoutGroup = baseCanvasElement.GetComponent<VerticalLayoutGroup>();
-            verticalLayoutGroup.childControlHeight = true;
-            verticalLayoutGroup.childScaleHeight = true;
-
-            Debug.Log("[MORE PLAYERS] Finished adding PlayerListElement items to Player List");
-
-            
-        } else {
-            Debug.Log("[MORE PLAYERS] MenuPlayerScreen or PlayerListElement_2 or PlayerListElement_3 not found.");
-        }
-    }
-
-    private void insertScrollViewOnPlayerList() {
-
-        Debug.Log("[MORE PLAYERS] Inserting ScrollView to PlayerList");
-
-        GameObject baseCanvasElement = GameObject.Find("Common/GameCanvas/Menu Players Screen/Panel/Panel");
-
-        // I can't get this or any other version of this to work (at least not without two more days of dev time)
-        // so we'll drop it for now
-
-        if (baseCanvasElement == null)
-        {
-            Debug.LogError("[MORE PLAYERS] Base Canvas Element not found.");
-            return;
-        }
-
-        GameObject scrollViewClone = Instantiate(GameObject.Find("Common/GameCanvas/Shop Screen/BG/Consumables/QuestListPanel/Scroll View"));
-        Transform scrollViewContentTransform = scrollViewClone.transform.Find("Viewport/Content");
-
-        scrollViewClone.transform.SetParent(baseCanvasElement.transform, false);
-
-        // Move all children from baseCanvasElement to the ScrollRect's Content
-        int childCount = baseCanvasElement.transform.childCount;
-        for (int i = childCount - 1; i >= 0; i--)
-        {
-            Transform child = baseCanvasElement.transform.GetChild(i);
-            if (child.transform != scrollViewClone.transform) {
-                child.SetParent(scrollViewContentTransform);
-            }
-
-        }
-
-    }
 
     /* <-- RecipeManager EXP multiplier Patches --> */
 
