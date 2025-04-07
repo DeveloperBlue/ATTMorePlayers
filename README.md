@@ -87,12 +87,12 @@ This mod was created for fun in my spare time. It's also my first Unity mod.
     - Tries to only spawn as much loot as the game has spawn points.
     - Tries to only spawn as many chests as the game has spawn points.
       - e.g. if there are only 8 spots for a chest to spawn, and we try to spawn a 9th chest, the game would crash.
-  - 1.4.2 / Inn Update **(Fixes bugs [#2](https://github.com/DeveloperBlue/ATTMorePlayers/issues/2) [#3](https://github.com/DeveloperBlue/ATTMorePlayers/issues/3), not tested with multiple players)**
-    - This version and versions after have only been lightly tested for bug fixes.
-    - Items can now be picked up
-    - Interacting with an inventory item no longer duplicates it
-    - Fixes saving
-    - No longer creates Player List Items for players 5-8 as the vanilla game now handles that internally
+- 1.4.2 / Inn Update **(Fixes bugs [#2](https://github.com/DeveloperBlue/ATTMorePlayers/issues/2) [#3](https://github.com/DeveloperBlue/ATTMorePlayers/issues/3), not tested with multiple players)**
+  - This version and versions after have only been lightly tested for bug fixes.
+  - Items can now be picked up
+  - Interacting with an inventory item no longer duplicates it
+  - Fixes saving
+  - No longer creates Player List Items for players 5-8 as the vanilla game now handles that internally
 
 ## To Do
 - Play the full game and test all quests up tho the Cave Quest
